@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Event Listing and Registration Module – Demo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="hero"><button class="theme" id="theme" aria-label="Toggle light or dark theme">🌓</button>
+  <h1>Find your next event</h1>
+  <p>Hi there 👋 Pick a hackathon or competition you actually want to join, read the details, and sign up in a minute. This is a demo of the module built during my ZidiGo internship.</p>
+  <span class="badge-demo">Demo data – not real ZidiGo events</span>
+  <div class="stats" id="stats"></div>
+</header>
+
+<section id="listView" aria-label="Event list">
+  <div class="controls">
+    <div><label for="q">Search events</label><input id="q" type="text" placeholder="e.g. web, AI, design"></div>
+    <div><label for="cat">Category</label><select id="cat"></select></div>
+    <div><label for="st">Status</label><select id="st"></select></div>
+    <div><label for="sort">Sort by</label><select id="sort"><option value="date">Date (earliest)</option><option value="seats">Most seats left</option><option value="name">Name (A–Z)</option></select></div>
+    <div style="display:flex;align-items:end"><button class="btn ghost" id="reset" style="width:100%">Reset</button></div>
+    <label class="chk" style="grid-column:1/-1"><input type="checkbox" id="simErr"> Simulate a failed request (to show the error state)</label>
+  </div>
+  <p class="count" id="count" aria-live="polite"></p>
+  <div id="results"></div>
+</section>
+
+<section id="detailView" hidden aria-label="Event details"></section>
+<section id="mine" class="panel" hidden aria-label="My registrations">
+  <h2 class="sec">Your registrations</h2>
+  <ul class="mine" id="mineList"></ul>
+</section>
+
+<section aria-label="How it works">
+  <h2 class="sec">How it works</h2>
+  <div class="steps">
+    <div class="step"><span class="n">1</span><h3>Browse</h3><p>Scroll through the events or use search, filters and sorting to narrow them down.</p></div>
+    <div class="step"><span class="n">2</span><h3>Read the details</h3><p>Check the schedule, rules, team size and how many seats are left before you decide.</p></div>
+    <div class="step"><span class="n">3</span><h3>Register</h3><p>Fill a short form. Mistakes are pointed out right away, so you can fix them quickly.</p></div>
+  </div>
+</section>
+
+<section aria-label="Frequently asked questions">
+  <h2 class="sec">Questions people ask</h2>
+  <details><summary>Do I need a team to register?</summary><p>Not always. Some events accept individuals, and some let you join as a team leader or team member. The team size is shown on every event.</p></details>
+  <details><summary>What if an event shows “Closed”?</summary><p>Registration has ended for it, so the form is replaced with a short message. Keep an eye on the Upcoming events instead.</p></details>
+  <details><summary>Why can’t I submit my form?</summary><p>The form checks your name, email, phone number, college and the rules checkbox. The red message under a field tells you what to fix.</p></details>
+  <details><summary>Is this real data?</summary><p>No. The events and seat numbers are sample data made for this demo, and registrations are kept only until you refresh the page.</p></details>
+</section>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<footer>Built with HTML5, CSS3 and JavaScript. Events are loaded from a simulated service; registrations are kept only in this page.</footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
